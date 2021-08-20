@@ -8,7 +8,7 @@
     [Table("Company_Descriptions")]
     public class CompanyDescriptionPoco : IPoco
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Computed), DefaultValue("newid()")]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public Guid Id { get; set; }
 
         public Guid Company { get; set; }

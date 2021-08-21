@@ -40,8 +40,8 @@ namespace CareerCloudCore.UnitTests.Assignment4
         [TestInitialize]
         public void Init_Pocos()
         {
-            //EFGenericRepository<ApplicantEducationPoco> repo = new EFGenericRepository<ApplicantEducationPoco>();
-            //_types = Assembly.LoadFrom(_assemblyUnderTest).GetTypes();
+            EFGenericRepository<ApplicantEducationPoco> repo = new EFGenericRepository<ApplicantEducationPoco>();
+            _types = Assembly.LoadFrom(_assemblyUnderTest).GetTypes();
 
             SystemCountry_Init();
             CompanyProfile_Init();

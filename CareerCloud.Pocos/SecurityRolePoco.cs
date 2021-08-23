@@ -9,7 +9,7 @@
     [Table("Security_Roles")]
     public class SecurityRolePoco : IPoco
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [Key]
         public Guid Id { get; set; }
 
         [Column(TypeName = "varchar(50)"), Required(AllowEmptyStrings = true)]

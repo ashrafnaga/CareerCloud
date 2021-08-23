@@ -10,7 +10,7 @@
     [Table("Security_Logins_Roles")]
     public class SecurityLoginsRolePoco : IPoco
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [Key]
         public Guid Id { get; set; }
 
         public Guid Login { get; set; }

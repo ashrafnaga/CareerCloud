@@ -47,8 +47,6 @@
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-
             modelBuilder.Entity<ApplicantEducationPoco>(entity => {
                 entity.HasOne(e => e.ApplicantProfile)
                 .WithMany(p => p.ApplicantEducations)
@@ -156,6 +154,9 @@
                 .WithMany(p => p.SecurityLoginsRoles)
                 .HasForeignKey(e => e.Role);
             });
+
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

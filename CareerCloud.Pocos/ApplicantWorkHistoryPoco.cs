@@ -8,7 +8,7 @@
     [Table("Applicant_Work_History")]
     public class ApplicantWorkHistoryPoco : IPoco
 	{
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+		[Key]
         public Guid Id { get; set; }
 
 		public Guid Applicant { get; set; }

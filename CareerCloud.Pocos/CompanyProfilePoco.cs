@@ -9,7 +9,7 @@
     [Table("Company_Profiles")]
     public class CompanyProfilePoco : IPoco
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [Key]
         public Guid Id { get; set; }
 
         [Column("Registration_Date", TypeName = "datetime2(7)")]

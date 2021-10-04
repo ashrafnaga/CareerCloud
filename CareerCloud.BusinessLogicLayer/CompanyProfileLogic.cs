@@ -14,15 +14,18 @@
             List<ValidationException> exceptionsList = new List<ValidationException>();
             foreach (CompanyProfilePoco item in companyProfiles)
             {
-                if (string.IsNullOrEmpty(item.CompanyWebsite)
-                    || item.CompanyWebsite.Substring(item.CompanyWebsite.Length - 4, 4) != ".com"
-                    || item.CompanyWebsite.Substring(item.CompanyWebsite.Length - 4, 4) != ".biz"
-                    || item.CompanyWebsite.Substring(item.CompanyWebsite.Length - 2, 3) != ".ca")
+                if (!string.IsNullOrEmpty(item.CompanyWebsite) && (
+                    item.CompanyWebsite.Contains(".com")
+                    || item.CompanyWebsite.Contains(".biz")
+                    || item.CompanyWebsite.Contains(".ca"))) { }
+                else
                 {
                     exceptionsList.Add(new ValidationException(600, "Valid websites must end with extensions: '.com', '.biz', or '.ca'"));
                 }
 
-                if (string.IsNullOrEmpty(item.ContactPhone) || !Regex.Match(item.ContactPhone, "000-000-0000").Success)
+
+                string MatchPhonePattern =@"\d{3}-\d{3}-\d{4}";
+                if (string.IsNullOrEmpty(item.ContactPhone) || !Regex.Match(item.ContactPhone, MatchPhonePattern).Success)
                 {
                     exceptionsList.Add(new ValidationException(601, $"Phone Number for contact {item.ContactName} require a right format like => '416-555-1234'."));
                 }

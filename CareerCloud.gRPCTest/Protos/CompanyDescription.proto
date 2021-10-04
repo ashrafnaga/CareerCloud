@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package CareerCloud.gRPC.Services;
+
+import "google/protobuf/empty.proto";
+import "Protos/Common.proto";
+
+option csharp_namespace = "CareerCloud.gRPCTest.Services";
+
+service CompanyDescriptionProvider{
+	rpc GetCompanyDescriptions (google.protobuf.Empty) returns (CompanyDescriptionList);
+	rpc GetCompanyDescription (CareerCloud.gRPCTest.Common.IdRequest) returns (CompanyDescriptionProto);
+	rpc PostCompanyDescription (CompanyDescriptionList) returns (CareerCloud.gRPCTest.Common.BoolReply);
+	rpc PutCompanyDescription (CompanyDescriptionList) returns (CareerCloud.gRPCTest.Common.BoolReply);
+	rpc DeleteCompanyDescription (CompanyDescriptionList) returns (CareerCloud.gRPCTest.Common.BoolReply);
+}
+
+message CompanyDescriptionProto {
+    string id =1;
+    string company =2;
+    string language_id =3;
+    string company_name =4;
+    string company_description =5;
+    bytes time_stamp =6;
+}
+
+message CompanyDescriptionList {
+    repeated CompanyDescriptionProto company_descriptions = 1; 
+}

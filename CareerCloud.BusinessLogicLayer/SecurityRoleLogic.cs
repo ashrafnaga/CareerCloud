@@ -34,7 +34,7 @@
         public override void Update(SecurityRolePoco[] securityRoles)
         {
             this.Verify(securityRoles);
-            base.Add(securityRoles);
+            base.Update(securityRoles);
         }
     }
 }

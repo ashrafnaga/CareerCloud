@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package CareerCloud.gRPC.Services;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+import "Protos/Common.proto";
+
+option csharp_namespace = "CareerCloud.gRPCTest.Services";
+
+service CompanyJobEducationProvider{
+	rpc GetCompanyJobEducations (google.protobuf.Empty) returns (CompanyJobEducationList);
+	rpc GetCompanyJobEducation (CareerCloud.gRPCTest.Common.IdRequest) returns (CompanyJobEducationProto);
+	rpc PostCompanyJobEducation (CompanyJobEducationList) returns (CareerCloud.gRPCTest.Common.BoolReply);
+	rpc PutCompanyJobEducation (CompanyJobEducationList) returns (CareerCloud.gRPCTest.Common.BoolReply);
+	rpc DeleteCompanyJobEducation (CompanyJobEducationList) returns (CareerCloud.gRPCTest.Common.BoolReply);
+}
+
+message CompanyJobEducationProto {
+    string id =1;
+    string job =2;
+    string major =3;
+    int32 importance =4;
+    bytes time_stamp =5;
+}
+
+message CompanyJobEducationList {
+    repeated CompanyJobEducationProto company_job_educations = 1; 
+}

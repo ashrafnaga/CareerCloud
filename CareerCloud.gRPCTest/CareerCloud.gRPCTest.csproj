@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Faker.Data.Core" Version="1.0.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.18.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.39.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.41.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\ApplicantEducation.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\ApplicantJobApplication.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\ApplicantProfile.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\Common.proto" GrpcServices="None" />
+    <Protobuf Include="Protos\CompanyDescription.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\CompanyJob.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\CompanyJobEducation.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\SecurityLogin.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\SecurityLoginsLog.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\SystemLanguageCode.proto" GrpcServices="Client" />
+  </ItemGroup>
+
+</Project>
